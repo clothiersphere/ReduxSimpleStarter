@@ -1,13 +1,19 @@
 import React from 'react';
 
-// {video} === (props) => { const video = props.video } 
-// this argument has a property named video. 
+//es6 notation 
+// const VideoListItem = (props) => {
+	// const video = props.video
+	// const onVideoSelect = props.onVideoSelect
 
-const VideoListItem = ({video}) => {
+// implies argument has a property mamed video
+// const VideoListItem = ({video}) => {
+
+
+const VideoListItem = ({video, onVideoSelect}) => {
 	const imageUrl = video.snippet.thumbnails.default.url;
 
 	return (
-		<li className="list-group-item">
+		<li onClick={() => onVideoSelect(video)} className="list-group-item">
 			<div className="video-list media">
 				<div className="media-left">
 					<img className="media-object" src={imageUrl} />
@@ -21,3 +27,6 @@ const VideoListItem = ({video}) => {
 };
 
 export default VideoListItem;
+
+
+
